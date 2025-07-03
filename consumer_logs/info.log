@@ -1,0 +1,44 @@
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.18s
+     Running unittests src/lib.rs (target/debug/deps/multi_grpc_consumer_rust-c2a8d466729e303a)
+
+running 1 test
+[2025-07-03T02:44:27Z WARN  pact_plugin_driver::plugin_manager] Could not load plugin manifest from disk, will try auto install it: Plugin directory "/root/.pact/plugins" does not exist
+[2025-07-03T02:44:27Z INFO  pact_plugin_driver::repository] Fetching index from github
+[2025-07-03T02:44:27Z INFO  pact_plugin_driver::plugin_manager] Found an entry for the plugin in the plugin index, will try install that
+[2025-07-03T02:44:27Z INFO  pact_plugin_driver::download] Fetching root document for source source=https://github.com/pactflow/pact-protobuf-plugin/releases/tag/v-0.6.0
+[2025-07-03T02:44:28Z INFO  pact_plugin_driver::plugin_manager] Creating plugin directory plugin_dir=/root/.pact/plugins/protobuf-0.6.0
+[2025-07-03T02:44:28Z INFO  pact_plugin_driver::plugin_manager] Writing plugin manifest file
+[2025-07-03T02:44:30Z WARN  pact_plugin_driver::metrics] 
+    
+    Please note:
+    We are tracking this plugin load anonymously to gather important usage statistics.
+    To disable tracking, set the 'PACT_DO_NOT_TRACK' environment variable to 'true'.
+    
+    
+[2025-07-03T02:44:31Z WARN  pact_matching::metrics] 
+    
+    Please note:
+    We are tracking events anonymously to gather important usage statistics like Pact version and operating system. To disable tracking, set the 'PACT_DO_NOT_TRACK' environment variable to 'true'.
+    
+    
+[2025-07-03T02:44:31Z INFO  pact_consumer::mock_server::plugin_mock_server] Writing pact out to '/usr/src/pacts/multi-grpc-consumer-rust-list-appender-provider.json'
+[2025-07-03T02:44:31Z INFO  pact_plugin_driver::plugin_manager] drop_plugin_access; plugin=PluginDependency { name: "protobuf", version: Some("0.6.0"), dependency_type: Plugin }
+test tests::test_proto_client ... FAILED
+
+failures:
+
+---- tests::test_proto_client stdout ----
+thread 'tests::test_proto_client' panicked at src/lib.rs:99:13:
+assertion `left == right` failed
+  left: AppendResponse { value: [0, 1, 2, 3] }
+ right: AppendResponse { value: [0] }
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+
+failures:
+    tests::test_proto_client
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 0 filtered out; finished in 4.05s
+
+error: test failed, to rerun pass `--lib`
+error: Recipe `generate-pact` failed on line 25 with exit code 101

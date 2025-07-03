@@ -16,6 +16,8 @@ mod tests {
 
     #[tokio::test(flavor = "multi_thread", worker_threads = 1)]
     async fn test_proto_client() {
+        env_logger::init();
+
         let mut pact_builder =
             PactBuilderAsync::new_v4("multi-grpc-consumer-rust", "list-appender-provider");
 

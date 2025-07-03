@@ -22,6 +22,6 @@ consumer-docker:
 generate-pact:
     mkdir -p pacts
     (cd pacts && rm -fr *)
-    docker run --mount type=bind,src=./pacts,dst=/usr/src/pacts --replace --name consumer consumer
+    docker run --mount type=bind,src=./pacts,dst=/usr/src/pacts --mount type=bind,src=./.pact/plugins/protobuf-0.6.0/log,dst=/root/.pact/plugins/protobuf-0.6.0/log --replace --name consumer consumer
 
 regenerate-pact: consumer-docker generate-pact

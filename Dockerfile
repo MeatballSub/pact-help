@@ -3,6 +3,7 @@ FROM rust:slim
 
 ENV PACT_OVERWRITE=true
 ENV PACT_OUTPUT_DIR=/usr/src/pacts
+ENV RUST_LOG=info
 
 RUN apt-get update && \
     apt-get install -y cmake curl pkg-config protobuf-compiler && \
